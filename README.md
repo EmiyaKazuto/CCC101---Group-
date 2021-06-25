@@ -1,2 +1,2 @@
 # CCC101---Group-
-CCC101- Project #1 By: Nicor, Uy, Babila, Jabarani
+CCC101- Project #1 By: Nicor, Uy, Babila, Jabarani, Manla
