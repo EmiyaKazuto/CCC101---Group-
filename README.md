@@ -1,4 +1,4 @@
-# CALCULATOR |CCC101 final project|
+# CALCULATOR |CCC101 Final Project|
 
 ## Basic Features
 
