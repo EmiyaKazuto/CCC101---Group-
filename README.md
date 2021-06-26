@@ -20,7 +20,9 @@
 
 
 ## Advance functionalities to be added
-• Trigonometric functions (cos,sin,tan)
+• Trigonometric functions (cos,sin,tan,sec,cot,csc)
+
+• Permutation and Combination
 
 • Vinculum (a/b)
 
