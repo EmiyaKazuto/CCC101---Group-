@@ -7,8 +7,6 @@
 •Can perform addition (+), subtraction (-), multiplication (x), and division (%).
 
 •capable of chaining multiple operations together and it must execute them in the correct order. 
-
-   -CANNOT IMPLEMENT PARENTHESES IN THE OPERATIONS YET
    
 • A delete button that deletes one character at a time
 
@@ -25,3 +23,5 @@
 • Trigonometric functions (cos,sin,tan)
 
 • Vinculum (a/b)
+
+• Perform operation with parentheses
