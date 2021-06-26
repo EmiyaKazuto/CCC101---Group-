@@ -1,92 +1,16 @@
-# CCC101-Group-Project
-CCC101- Project #1 By: Nicor, Uy, Babila, Jabarani, Manla
-zzzzz
+### CALCULATOR |CCC101 Final Project|
+#### Group Name: uti
+#### Group Members:
+1. Princess Mellyn Babila (2020-0019)
+2. Alkhapidz Jabarani (2020-0233)
+3. Aeriel Manla (2020-1240)
+4. Jeric Ryan Nicor(2020-1366)
+5. Shaina Uy (2020-0129)
 
-Project Requirements
+##### Task of Each Member
+- The leader of the group is Alkhapidz Jabarani. Though he is not assigned in managing the github repository, he is the one in charged with finalizing the project. He will divide the tasks to the group as fairly as he should;He will be the one to set up the project correctly before commiting it to the repository, from installing requirements down to the actual execution of the project. He is also tasked in developing the UI components-- designing the frames of buttons and planning how should the calculator would look like. his task also focuses on which library suits the best in making the project successful. Finally, his task is to secure and ensure that all the minimum requirements set by the teacher/instructor are done.
+- Jeric Nicor's task focuses on the compilation of our work in the github for he is the one that manages the repository. He shall compile the works of our group in Github from the branches to the main branch. He shall be knowledgeable in the management of Github branches and shall follow the experienced advice the teacher instructed the group to avoid mistakes in compiling the group's work.
+- Shaina’s task centers on the writing of the calculator logic. She is responsible for programming the calculator that it may be able to perform basic functions required by the said programming activity. She is also advised to cross-check the test files to assure that the calculator is on its right path. 
+- Aeriel's task focuses on the documentation of the progress the group has made towards the completion of the project. In doing so, the group could track mistakes and advancements; which makes it easier to track changes and develop the program further.
+- The last member of the group, Princess, has a task which concentrates mainly on the creation of the unit test (test files). In order to assure that the calculator logic is working well, she is tasked to focus on formulating necessary measures that could check the validity of the group work. The test files created will then determine if the codes written were correct.
 
-• Create a group composed of 4-5 people from your section. Each individual should only belong to one group.
-
-• Develop a calculator in Python with a graphical User Interface (UI).
-
-• The calculator must have the following simple functions:
-
-– Numeric keypad (0-9) with decimal point
-
-– Can perform addition (+), subtraction (-), multiplication (x), and division (%).
-
-– Your calculator should be capable of chaining multiple operations together and it must execute them in the correct order.
-
-∗ The basic requirements that does not require you to implement parentheses in your operations.
-
-– A delete button that deletes one character at a time
-
-– A clear button that deletes everything that is written on the screen
-
-– You can also include other functionalities that you see fit as long as you fulfill the basic requirements stated above.
-
-• Create a GitHub repository that will host your project. This github repository must be public.
-
-• All members must commit to this repository. Members with no commits will automatically get zero.
-
-• Setting up your project should be done in one step only, particulary, by running: pip install -r requirements.txt
-
-• Running your project should also be done in one step only: python main.py
-
-• I also expect that you will be writing tests for the project. I should be able to run these tests using one command only: python test.py
-
-• A 2-3 minute video (by group) that documents what you have done in this project.
-
-GIT
-
-Since we will be using Github, let us take advantage of the optimizations it introduces on our workflow.
-
-• Your project should have a minimum of 3 branches.
-
-– The main development branch 
-
-– Branch for developing the calculator logic.
-
-– Brach for developing the UI. 
-
-Depending on how you divide the tasks, your repository can have more branches.
-
-• You can use Github’s issues feature to act as a checklist/project management tool. You can create individual issues to signify each feature that you want to implement for the project.
-
-• Add a README.md file in the root directory of your repository.
-
-Dividing Tasks
-
-Let’s assume a group of 4 people. With object oriented-programming, we can easily separate the logic of the calculator from it’s user facing component which is the UI. 
-
-• One person will act as the team leader. He will manage the github repository, write some unit tests, and be the one in charged with integrating the calculator logic with the UI. Also, this person must be knowledgeable in merging different git branches together.
-
-• The other one will be in charged of writing the calculator logic. He can also participate in writing the unit tests to assure that the calculator logic is working well.
-
-• The third person will be the one assigned in doing the UI. Python has a lot if available packages that can be used in developing UI components. It is the job of this team member to determine what library will best suit this application. He/she can also write some unit tests to assured UI components are behaving as desired.
-
-• The last member will be in charged with the documentation and should be the one in charged in writing the majority of the unit tests.
-
-LETSGOO
-
-DEADLINES-DEADLINES-DEADLINES
-
-1. JUNE 25, 2021
-
-- Finalize group members and their respective tasks
-- Decide on a group name
-- Create repository
-- Fill up google forms on June 23
-   
-    •Week1 Task: DONE
-
-2. JULY 02, 2021
-
-- Project should be divided into multiple branches
-- Already have decided on what library/package to use
-- Fill up accomplishment report
-
-3. JULY 09, 2021
-
-- All branches should be merged into the main branch and should be named "master"
-- Submit a 2-3 minute video that highlights app's features and the challenges that you faced in developing it
-- Rejoice and wait for your scores.
