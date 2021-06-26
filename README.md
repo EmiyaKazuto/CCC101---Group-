@@ -1,6 +1,6 @@
-# Calculator |CCC101 final project|
+# CALCULATOR |CCC101 final project|
 
-## BASIC FEATURES
+## Basic Features
 
 •Numeric keypad (0-9) with decimal point
 
