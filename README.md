@@ -25,3 +25,5 @@
 • Vinculum (a/b)
 
 • Perform operation with parentheses
+
+• pi (π)
