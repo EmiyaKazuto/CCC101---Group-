@@ -94,6 +94,9 @@ class Calculator():
                 self.total_expression = ""
             except Exception as e:
                 self.current_expression = "Error"
-
-
+""""
+TO DO:
+1. Proper Error Handling
+2. Test Files
+"""
 
