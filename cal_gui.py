@@ -174,7 +174,6 @@ class Calculator:
 
     def run(self):
         self.window.mainloop()
-
         
 if __name__ == "__main__":
     calc = Calculator()
