@@ -1,5 +1,3 @@
-# CCC101-Group-Project
-CCC101- Project #1 By: Nicor, Uy, Babila, Jabarani
 # CALCULATOR |CCC101 Final Project|
 
 ## Basic Features
@@ -14,20 +12,40 @@ CCC101- Project #1 By: Nicor, Uy, Babila, Jabarani
 
 • A clear button that deletes everything that is written on the screen
 
-• An exponent (^) button
-
 • This is key binded calculator app. You can input using your keyboard directly
 
 • It displays the current expression being input by the user
 
-
 ## Advance functionalities to be added
-• Trigonometric functions (cos,sin,tan,sec,cot,csc)
+
+• Square of a number
+
+• Square root of a number
+
+• Cube of a number
+
+• Scientific exponent (EXP)
+
+• Saved Ans
 
 • Permutation and Combination
 
-• Vinculum (a/b)
+• Some trigonometric functions.
+
+      -sine
+   
+      -cosine
+   
+      -tangent
 
 • Perform operation with parentheses
 
 • pi (π)
+
+• Logarithm (log)
+
+• Natural logarithm (ln)
+
+• Euler's number (e)
+
+• Absolute Value of a number (abs)
