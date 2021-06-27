@@ -52,7 +52,9 @@
 
 ## Sample application execution
 
-![image](https://user-images.githubusercontent.com/84675388/123540553-2a3fcd00-d772-11eb-9db9-b2d1f7a7b2cb.png)
+clicl link to view
+
+(https://user-images.githubusercontent.com/84675388/123540553-2a3fcd00-d772-11eb-9db9-b2d1f7a7b2cb.png)
 
 
 
