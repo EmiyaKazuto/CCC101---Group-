@@ -74,20 +74,25 @@ class Calculator():
 
         if '²' in self.total_expression or '³' in self.total_expression or 'E' in self.total_expression:
             self.current_expression = str(eval(self.total_expression.replace('²', '**2').replace('³', '**3').replace('E','*10**')))
-        elif 'P' in self.total_expression:
-            n,r = self.current_expression.split('P')
-            n,r = int(n), int(r)
-            if n >= r >= 0:
-                self.current_expression = str(eval(f'math.factorial({n})' + '//' + f'math.factorial({n}-{r})'))
-            else:
-                self.current_expression = 'Math Error'
-        elif 'C' in self.total_expression:
-            n,r = self.current_expression.split('C')
-            n,r = int(n), int(r)
-            if 0 <= r <= n:
-                self.current_expression = str(eval(f'math.factorial({n})' + '//' + f'math.factorial({r})' + '//' + f'math.factorial({n}-{r})'))
-            else:
-                self.current_expression = 'Math Error'
+        
+        elif 'P' in self.total_expression or 'C' in self.total_expression:
+            pc = []
+            x = self.total_expression
+            for i in range(len(x)):
+                if x[i] == 'P' or x[i] == 'C':
+                    pc.append(x[i-1] + x[i] + x[i+1])
+            for term in pc:
+                if 'P' in term:
+                    n,r = term.split('P')
+                    n,r = int(n), int(r)
+                    if 0 <= r <= n: 
+                        x = x.replace(term, f'math.factorial({n})' + '//' + f'math.factorial({n}-{r})')
+                elif 'C' in term:
+                    n,r = term.split('C')
+                    n,r = int(n), int(r)
+                    if 0 <= r <= n:
+                        x = x.replace(term, f'math.factorial({n})' + '//' + f'math.factorial({r})' + '//' + f'math.factorial({n}-{r})' )
+            self.current_expression = str(eval(x))
         else:
             try:
                 self.current_expression = str(eval(self.total_expression))
