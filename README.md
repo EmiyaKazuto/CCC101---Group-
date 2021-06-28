@@ -4,17 +4,37 @@
 
 •Numeric keypad (0-9) with decimal point
 
-•Can perform addition (+), subtraction (-), multiplication (x), and division (%).
+•Can perform addition (+), subtraction (-), multiplication (x), and division (/).
 
-•capable of chaining multiple operations together and it must execute them in the correct order. 
+•capable of chaining multiple operations together and it must execute them in the correct order. (see photo at the bottom part)
    
 • A delete button that deletes one character at a time
 
-• A clear button that deletes everything that is written on the screen
+• A clear button that clears everything on the display
 
-• This is key binded calculator app. You can input using your keyboard directly
+• It displays the current expression being inputted by the user
 
-• It displays the current expression being input by the user
+## This is a key binded calculator app. You can use it with your keyboard directly
+
+refer to the following:
+   
+      press "enter" for "="
+      
+      press "Backspace" for "del
+      
+      press "c" (small c) for "AC"
+      
+      press "E" for "EXP"
+      
+      press "e" for "e"
+      
+      press "P" for "nPr"
+      
+      press "C" for "nCr"
+      
+      press "(" for "("  and  press ")" for  ")"
+   
+
 
 ## Advance functionalities to be added
 
@@ -38,7 +58,7 @@
    
       -tangent
 
-• Perform operation with parentheses
+• Perform operation with the use of parentheses
 
 • pi (π)
 
