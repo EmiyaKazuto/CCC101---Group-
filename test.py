@@ -143,20 +143,25 @@ class TestCalculator(unittest.TestCase):
     def test_clear(self):
         pass
 
+
     def test_delete(self):
         pass
+
 
     def test_answer(self):
         pass
 
+
     def test_exp_function(self):
         pass
+
 
     def test_evaluate(self):
         pass
 
 
+
+
         
 if __name__ == "__main__":
 	unittest.main()     
-
