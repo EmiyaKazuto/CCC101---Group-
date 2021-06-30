@@ -37,7 +37,6 @@ class Calculator:
     def add_to_expression(self, value):
         self.current_expression += str(value)
 
-
     def append_calculator(self, operator):
         self.current_expression += operator
         self.total_expression += self.current_expression
@@ -52,33 +51,25 @@ class Calculator:
         except Exception as e:
             self.current_expression = "Math Error"
 
-
     def square_a_number(self):
         self.current_expression = (str(eval(f"{self.current_expression}**2")))
 
-
     def cube_a_number(self):
         self.current_expression = (str(eval(f"{self.current_expression}**3")))
-
 
     def sqrt_of_a_number(self):
         if self.current_expression > 0:
             self.current_expression = (str(eval(f"{self.current_expression}**0.5")))
         else: 
             self.current_expression = "Math Error"
-
     
     def cuberoot_of_a_number(self):
         self.current_expression = (str(eval(f"{self.current_expression}**(1/3)")))
     
-
     def delete_a_number(self):
         self.current_expression = self.current_expression[:-1]
-
 
     def clear_calculator(self):
         self.current_expression = ""
         self.total_expression = ""
-
-
 
