@@ -88,7 +88,21 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         # Test if the calculator evaluates the expression correctly
         self.assertEqual(c.current_expression, '1.0')
-    
+
+    def test_evaluate_divide_zero(self):
+
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        # Append an operator to the expression
+        c.append_operator('/')
+        # Add additional numbers to the current expression
+        c.add_to_expression(0)
+        c.evaluate()
+        # Test if the calculator evaluates the expression correctly
+
+        self.assertRaises(Exception, c.current_expression, 1,0)
+        
     def test_evaluate_add_and_subtract(self):
 
         c = Calculator()
