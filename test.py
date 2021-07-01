@@ -170,7 +170,7 @@ if __name__ == "__main__":
 ## RAN 8 TESTS - OK
 import unittest
 import math
-from logic import Calculator
+from calcu_logic import Calculator
 
 
 class TestCalculator(unittest.TestCase):
