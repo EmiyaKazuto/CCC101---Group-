@@ -1,4 +1,4 @@
-from math import *
+import math
 
 sin, cos, tan = math.sin, math.cos, math.tan
 sqrt = math.sqrt
@@ -76,15 +76,13 @@ class Calculator():
 
     def answer(self):
         self.current_expression = 'Ans' + self.current_expression
-        self.update_label()
-        self.update_total_label()
+
 
     def exp_function(self):
         self.current_expression = self.current_expression + 'E'
 
     def evaluate(self):
         self.total_expression += self.current_expression
-        self.update_total_label()
         x = self.total_expression
         try: 
             if '²' in x or '³' in x or 'E' in x or 'P' in x or 'C' in x or 'π' in x or 'e' in x or 'Ans' in x:
@@ -114,9 +112,6 @@ class Calculator():
                     self.current_expression = " Math Error"
         except Exception as e:
             self.current_expression = 'Math Error'
-        finally:
-            self.update_label()
+
         self.prev_ans = self.current_expression[:]
         self.total_expression = ''
-        self.update_label()
-
