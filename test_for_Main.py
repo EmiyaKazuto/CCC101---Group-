@@ -29,6 +29,48 @@ class TestCalculator(unittest.TestCase):
         # Test if the current expression is cleared
         self.assertEqual(c.current_expression, '')
 
+    def test_append_operator2(self):
+
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(2)
+        c.add_to_expression(3)
+        # Append an operator to the expression
+        c.append_operator('-')
+        # Test if the operator was appended to the total expression
+        self.assertEqual(c.total_expression, '123-')
+        # Test if the current expression is cleared
+        self.assertEqual(c.current_expression, '')
+
+    def test_append_operator3(self):
+
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(2)
+        c.add_to_expression(3)
+        # Append an operator to the expression
+        c.append_operator('x')
+        # Test if the operator was appended to the total expression
+        self.assertEqual(c.total_expression, '123x')
+        # Test if the current expression is cleared
+        self.assertEqual(c.current_expression, '')
+
+    def test_append_operator3(self):
+
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(2)
+        c.add_to_expression(3)
+        # Append an operator to the expression
+        c.append_operator('/')
+        # Test if the operator was appended to the total expression
+        self.assertEqual(c.total_expression, '123/')
+        # Test if the current expression is cleared
+        self.assertEqual(c.current_expression, '')
+
     def test_evaluate_add(self):
 
         c = Calculator()
@@ -88,21 +130,7 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         # Test if the calculator evaluates the expression correctly
         self.assertEqual(c.current_expression, '1.0')
-
-    def test_evaluate_divide_zero(self):
-
-        c = Calculator()
-        # Add some numbers to the current expression
-        c.add_to_expression(1)
-        # Append an operator to the expression
-        c.append_operator('/')
-        # Add additional numbers to the current expression
-        c.add_to_expression(0)
-        c.evaluate()
-        # Test if the calculator evaluates the expression correctly
-
-        self.assertRaises(Exception, c.current_expression, 1,0)
-        
+    
     def test_evaluate_add_and_subtract(self):
 
         c = Calculator()
@@ -132,9 +160,16 @@ class TestCalculator(unittest.TestCase):
         c.add_to_expression(1)
         c.add_to_expression(0)
         # Square the inputted number
-        c.square()
+        c.squared()
+        c.evaluate()
         # Test if the calculator gives the correct result
         self.assertEqual(c.current_expression, '100')
+    
+    def pi_function(self):
+        c = Calculator()
+        c.add_to_expression('π')
+        c.evaluate()
+        self.assertEqual(c.current_expression, '3.1415926535')
 
 
 if __name__ == "__main__":
