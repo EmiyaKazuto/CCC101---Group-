@@ -1,84 +1,176 @@
-from math import *
-
-def trig_sine(arg):
-    return sin(arg)
-
-def trig_cosine(arg):
-    return cos(arg)
-
-def trig_tangent(self):
-    return tan(arg)
-
-def trig_secant(arg):
-    return sec(arg)
-
-def trig_cosecant(arg):
-    return csc(arg)
-
-def trig_cotangent(arg):
-    return cot(arg)
-
-def permutation(n,r):
-    factorial = math.factorial
-    if n >= r >= 0:
-        return factorial(n) // factorial(n-r)
-
-def combination(n,r):
-    factorial = math.factorial
-    if 0 <= r <= n:
-        return factorial(n) // factorial(r) // factorial(n-r)
+import unittest
+import math
+from main import Calculator
 
 
-class Calculator:
-    def __init__(self):
-        self.total_expression = ""
-        self.current_expression = ""
+class TestCalculator(unittest.TestCase):
 
-    def add_to_expression(self, value):
-        self.current_expression += str(value)
+    def test_add_to_expression(self):
 
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(2)
+        c.add_to_expression(3)
+        # Test if the current expression matches the combination of the inputted numbers
+        self.assertEqual(c.current_expression, '123')
 
-    def append_calculator(self, operator):
-        self.current_expression += operator
-        self.total_expression += self.current_expression
-        self.current_expression = ""
+    def test_append_operator(self):
 
-    def evaluate_expression(self):
-        self.total_expression += self.current_expression
-        try:
-            self.current_expression = str(eval(self.total_expression))
-            self.total_expression = ""
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(2)
+        c.add_to_expression(3)
+        # Append an operator to the expression
+        c.append_operator('+')
+        # Test if the operator was appended to the total expression
+        self.assertEqual(c.total_expression, '123+')
+        # Test if the current expression is cleared
+        self.assertEqual(c.current_expression, '')
 
-        except Exception as e:
-            self.current_expression = "Math Error"
+    def test_append_operator2(self):
 
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(2)
+        c.add_to_expression(3)
+        # Append an operator to the expression
+        c.append_operator('-')
+        # Test if the operator was appended to the total expression
+        self.assertEqual(c.total_expression, '123-')
+        # Test if the current expression is cleared
+        self.assertEqual(c.current_expression, '')
 
-    def square_a_number(self):
-        self.current_expression = (str(eval(f"{self.current_expression}**2")))
+    def test_append_operator3(self):
 
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(2)
+        c.add_to_expression(3)
+        # Append an operator to the expression
+        c.append_operator('x')
+        # Test if the operator was appended to the total expression
+        self.assertEqual(c.total_expression, '123x')
+        # Test if the current expression is cleared
+        self.assertEqual(c.current_expression, '')
 
-    def cube_a_number(self):
-        self.current_expression = (str(eval(f"{self.current_expression}**3")))
+    def test_append_operator3(self):
 
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(2)
+        c.add_to_expression(3)
+        # Append an operator to the expression
+        c.append_operator('/')
+        # Test if the operator was appended to the total expression
+        self.assertEqual(c.total_expression, '123/')
+        # Test if the current expression is cleared
+        self.assertEqual(c.current_expression, '')
 
-    def sqrt_of_a_number(self):
-        if self.current_expression > 0:
-            self.current_expression = (str(eval(f"{self.current_expression}**0.5")))
-        else: 
-            self.current_expression = "Math Error"
+    def test_evaluate_add(self):
 
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(0)
+        # Append an operator to the expression
+        c.append_operator('+')
+        # Add additional numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(0)
+        c.evaluate()
+        # Test if the calculator evaluates the expression correctly
+        self.assertEqual(c.current_expression, '20')
+
+    def test_evaluate_subtract(self):
+
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(0)
+        # Append an operator to the expression
+        c.append_operator('-')
+        # Add additional numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(0)
+        c.evaluate()
+        # Test if the calculator evaluates the expression correctly
+        self.assertEqual(c.current_expression, '0')
     
-    def cuberoot_of_a_number(self):
-        self.current_expression = (str(eval(f"{self.current_expression}**(1/3)")))
+    def test_evaluate_Multiply(self):
+
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(0)
+        # Append an operator to the expression
+        c.append_operator('*')
+        # Add additional numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(0)
+        c.evaluate()
+        # Test if the calculator evaluates the expression correctly
+        self.assertEqual(c.current_expression, '100')
+
+    def test_evaluate_Divide(self):
+
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(0)
+        # Append an operator to the expression
+        c.append_operator('/')
+        # Add additional numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(0)
+        c.evaluate()
+        # Test if the calculator evaluates the expression correctly
+        self.assertEqual(c.current_expression, '1.0')
     
+    def test_evaluate_add_and_subtract(self):
 
-    def delete_a_number(self):
-        self.current_expression = self.current_expression[:-1]
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(0)
+        c.add_to_expression(0)
+        # Append an operator to the expression
+        c.append_operator('+')
+        # Add additional numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(0)
+        # Append an operator to the expression
+        c.append_operator('-')
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(2)
+        c.add_to_expression(0)
+        # Test if the calculator evaluates the expression correctly
+        c.evaluate()
+        self.assertEqual(c.current_expression, '-10')
+
+    def test_square_a_number(self):
+
+        c = Calculator()
+        # Add some numbers to the current expression
+        c.add_to_expression(1)
+        c.add_to_expression(0)
+        # Square the inputted number
+        c.squared()
+        c.evaluate()
+        # Test if the calculator gives the correct result
+        self.assertEqual(c.current_expression, '100')
+    
+    def pi_function(self):
+        c = Calculator()
+        c.add_to_expression('π')
+        c.evaluate()
+        self.assertEqual(c.current_expression, '3.1415926535')
 
 
-    def clear_calculator(self):
-        self.current_expression = ""
-        self.total_expression = ""
-
-
-
+if __name__ == "__main__":
+    unittest.main()
