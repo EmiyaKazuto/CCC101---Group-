@@ -14,9 +14,9 @@
 
 • It displays the current expression being inputted by the user
 
-## This is a key binded calculator app. You can use it with your keyboard directly
+## This is a key binded calculator app. You can use it with your keyboard directly.
 
-refer to the following:
+please refer to the following:
    
       press "enter" for "="
       
@@ -36,7 +36,7 @@ refer to the following:
    
 
 
-## Advance functionalities to be added
+## Advance features
 
 • Square of a number
 
