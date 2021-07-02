@@ -2,11 +2,11 @@
 
 ## Basic Features
 
-•Numeric keypad (0-9) with decimal point
+• Numeric keypad (0-9) with decimal point
 
-•Can perform addition (+), subtraction (-), multiplication (x), and division (/).
+• Can perform addition (+), subtraction (-), multiplication (x), and division (/).
 
-•capable of chaining multiple operations together and it must execute them in the correct order. (see photo at the bottom part)
+• capable of chaining multiple operations together and it must execute them in the correct order. (See photo at the bottom part.)
    
 • A delete button that deletes one character at a time
 
@@ -78,7 +78,7 @@ please refer to the following:
 
 ## Sample application execution
 
-clicl link to view
+Click link to view
 
 (https://user-images.githubusercontent.com/84675388/123540553-2a3fcd00-d772-11eb-9db9-b2d1f7a7b2cb.png)
 
