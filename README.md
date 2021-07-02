@@ -50,7 +50,7 @@ please refer to the following:
 
 • Permutation and Combination
 
-• Some trigonometric functions.
+• Some trigonometric functions. (results are in radians)
 
       -sine
    
@@ -66,9 +66,15 @@ please refer to the following:
 
 • Natural logarithm (ln)
 
-• Euler's number (e)
+• Euler's number (e) 
 
 • Absolute Value of a number (abs)
+
+## LIMITS OF CALCULATOR FUNCTIONALITIES
+
+• Can only display answers of upto 14 characters only
+
+• Cannot return exact answers of xE(-n) if n is greater than 3.
 
 ## Sample application execution
 
