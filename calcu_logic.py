@@ -84,16 +84,24 @@ class Calculator():
 
     def evaluate(self):
         self.total_expression += self.current_expression
-
         x = self.total_expression
+        
         try:
-
             if '²' in x or '³' in x or 'E' in x or 'P' in x or 'C' in x or 'Ans' in x:
                 x = x.replace('²', '**2').replace('³', '**3').replace('E','*10**').replace('Ans',f'{self.prev_ans}')
                 pc = []
+                operands = ['+', '-', '*', '/']
                 for i in range(len(x)):
                     if x[i] == 'P' or x[i] == 'C':
-                        pc.append(x[i-1] + x[i] + x[i+1])
+                        term = ''
+                        y = z = i
+                        while y > -1 and x[y] not in operands:
+                            term = x[y] + term
+                            y -= 1
+                        while (z+1) < len(x) and x[z+1] not in operands:
+                            term += x[z+1]
+                            z += 1
+                        pc.append(term)
                 for term in pc:
                     if 'P' in term:
                         n,r = term.split('P')
@@ -106,11 +114,11 @@ class Calculator():
                         if 0 <= r <= n:
                             x = x.replace(term, f'math.factorial({n})' + '//' + f'math.factorial({r})' + '//' + f'math.factorial({n}-{r})' )
             self.current_expression = str(eval(x))
-
-        except Exception as e:
-            self.current_expression = "Error"
-                
+            
+        except Exception:
+            self.current_expression = "Math Error"   
+        
         self.prev_ans = self.current_expression[:]
         self.total_expression = ""
-        self.current_expression = self.current_expression[:11]
+        self.current_expression = self.current_expression[:13]
         return self.current_expression
