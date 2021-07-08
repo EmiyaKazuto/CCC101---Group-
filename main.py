@@ -330,6 +330,7 @@ class Calculator:
         
         self.prev_ans = self.current_expression[:]
         self.total_expression = ""
+        self.current_expression = self.current_expression[:13]
         self.update_label()
         return self.current_expression
 
