@@ -80,8 +80,3 @@ class Calculator:
 
     def exit(self):
         exit()
-
-
-if __name__ == "__main__":
-    calc = Calculator()
-    calc.run()
