@@ -7,14 +7,16 @@ power = math.pow
 abs = math.fabs
 log = math.log10
 ln = math.log
-e = math.e
+e = math.exp
 
-class Calculator():
+
+class Calculator:
     def __init__(self):
         self.total_expression = ""
         self.current_expression = ""
-        self.prev_ans = ''
-
+        self.prev_ans = ""
+        self.operations = {"/": "\u00F7", "*": "\u00D7", "-": "-", "+": "+"}
+        
     def append_operator(self, operator):
         self.current_expression += operator
         self.total_expression += self.current_expression
@@ -23,72 +25,25 @@ class Calculator():
     def add_to_expression(self, value):
         self.current_expression += str(value)
 
-    def pi_function(self):
-        ('π' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' )
-                           else '*π' )
-    
-    def log_function(self):
-        self.current_expression = 'log(' + self.current_expression
-
-    def ln_function(self):
-        self.current_expression = 'ln(' + self.current_expression
-
-    def abs_function(self):
-        self.current_expression = 'abs(' + self.current_expression
-    
-    def e_function(self):
-        ('e' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' )
-                           else '*e' )
-
-    def trig_sine(self):
-        self.current_expression =  'sin(' + self.current_expression
-
-    def trig_cosine(self):
-        self.current_expression =  'cos(' + self.current_expression
-
-    def trig_tangent(self):
-        self.current_expression =  'tan(' + self.current_expression
-
-    def squared(self):
-        self.current_expression = self. current_expression + '²'
-
-    def sqrt(self):
-        self.current_expression = 'sqrt(' + self.current_expression
-
-    def cubed(self):
-        self.current_expression = self. current_expression + '³'
-
-    def perm(self):
-        self.current_expression = self.current_expression + 'P'
-
-    def comb(self):
-        self.current_expression = self.current_expression + 'C'
-
     def clear(self):
         self.current_expression = ""
-        self.total_expression = ""
+        self.total_expression = ""    
 
     def delete(self):
         self.current_expression = str(self.current_expression[:-1])
+        
 
     def answer(self):
-        self.current_expression = 'Ans' + self.current_expression
-
-
-    def exp_function(self):
-        self.current_expression = self.current_expression + 'E'
-
+        self.current_expression = self.current_expression + "Ans"
+    
+    # other functions
     def evaluate(self):
         self.total_expression += self.current_expression
         x = self.total_expression
         
         try:
-            if '²' in x or '³' in x or 'E' in x or 'P' in x or 'C' in x or 'Ans' in x:
-                x = x.replace('²', '**2').replace('³', '**3').replace('E','*10**').replace('Ans',f'{self.prev_ans}')
+            if '²' in x or '³' in x or 'E' in x or 'P' in x or 'C' in x or 'Ans' in x or 'e' in x or 'π' in x:
+                x = x.replace('²', '**2').replace('³', '**3').replace('E','*10**').replace('Ans',f'{self.prev_ans}').replace('e', 'math.exp').replace('π', 'math.pi')
                 pc = []
                 operands = ['+', '-', '*', '/']
                 for i in range(len(x)):
@@ -116,9 +71,17 @@ class Calculator():
             self.current_expression = str(eval(x))
             
         except Exception:
-            self.current_expression = "Math Error"   
+            self.current_expression = "Error"   
         
         self.prev_ans = self.current_expression[:]
         self.total_expression = ""
         self.current_expression = self.current_expression[:13]
         return self.current_expression
+
+    def exit(self):
+        exit()
+
+
+if __name__ == "__main__":
+    calc = Calculator()
+    calc.run()
