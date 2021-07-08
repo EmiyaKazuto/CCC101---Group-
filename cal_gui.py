@@ -1,6 +1,5 @@
 import tkinter as tk
 
-
 LARGE_FONT_STYLE = ("Cambria", 30, "bold")
 SMALL_FONT_STYLE = ("Cambria", 16)
 DEFAULT_FONT_STYLE = ("Cambria", 20)
@@ -10,11 +9,13 @@ class Calculator:
     def __init__(self):
         self.window = tk.Tk()
         self.window.geometry("370x590")
+        self.window.iconbitmap("calc_icon.ico")
         self.window.resizable(0, 0)
         self.window.title("Calculator")
-        self.window.iconbitmap("calc_icon.ico")
+
         self.total_expression = ""
         self.current_expression = ""
+        self.prev_ans = ""
         self.display_frame = self.create_display_frame()
         self.total_label, self.label = self.create_display_labels()
         self.digits = {
@@ -26,6 +27,7 @@ class Calculator:
         self.operations1 = {"*": "\u00D7", "+": "+"}
         self.operations2 = {"/": "\u00F7", "-": "-"}
         self.buttons_frame = self.create_buttons_frame()
+
         self.buttons_frame.rowconfigure(0, weight=1)
         for x in range(1, 5):
             self.buttons_frame.rowconfigure(x, weight=1)
@@ -183,30 +185,29 @@ class Calculator:
                            borderwidth=0)
         button.grid(row=6, column=4, sticky=tk.NSEW)
 
-    # changed the previous function: E can be displayed now when pressed.
     def create_exp_button(self):
         button = tk.Button(self.buttons_frame, text="EXP", bg="gray6", fg="ghost white", font=DEFAULT_FONT_STYLE,
                            borderwidth=0)
         button.grid(row=6, column=3, sticky=tk.NSEW)
+
+    def create_display_labels(self):
+        total_label = tk.Label(self.display_frame, text=self.total_expression, anchor=tk.E, bg="gray37",
+                               fg="lavender", padx=24, font=SMALL_FONT_STYLE)
+        total_label.pack(expand=True, fill='both')
+
+        label = tk.Label(self.display_frame, text=self.current_expression, anchor=tk.E, bg="gray37",
+                         fg="lavender", padx=24, font=LARGE_FONT_STYLE)
+        label.pack(expand=True, fill='both')
+
+        return total_label, label
 
     def create_buttons_frame(self):
         frame = tk.Frame(self.window)
         frame.pack(expand=True, fill="both")
         return frame
 
-    def create_display_labels(self):
-        total_label = tk.Label(self.display_frame, text=self.total_expression, anchor=tk.E, bg="gray15",
-                               fg="lavender", padx=24, font=SMALL_FONT_STYLE)
-        total_label.pack(expand=True, fill='both')
-
-        label = tk.Label(self.display_frame, text=self.current_expression, anchor=tk.E, bg="gray15",
-                         fg="lavender", padx=24, font=LARGE_FONT_STYLE)
-        label.pack(expand=True, fill='both')
-
-        return total_label, label
-
     def create_display_frame(self):
-        frame = tk.Frame(self.window, height=221,)
+        frame = tk.Frame(self.window, height=221, )
         frame.pack(expand=True, fill="both")
         return frame
 
