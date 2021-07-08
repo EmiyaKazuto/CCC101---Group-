@@ -32,11 +32,9 @@ class Calculator:
     def delete(self):
         self.current_expression = str(self.current_expression[:-1])
         
-
     def answer(self):
         self.current_expression = self.current_expression + "Ans"
     
-    # other functions
     def evaluate(self):
         self.total_expression += self.current_expression
         x = self.total_expression
