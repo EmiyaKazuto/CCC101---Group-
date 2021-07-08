@@ -326,7 +326,7 @@ class Calculator:
             self.current_expression = str(eval(x))
             
         except Exception:
-            self.current_expression = "Math Error"   
+            self.current_expression = "Error"   
         
         self.prev_ans = self.current_expression[:]
         self.total_expression = ""
