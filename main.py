@@ -18,9 +18,9 @@ class Calculator:
     def __init__(self):
         self.window = tk.Tk()
         self.window.geometry("370x590")
-        self.window.iconbitmap("calc_icon.ico")
         self.window.resizable(0, 0)
         self.window.title("Calculator")
+        self.window.iconbitmap('calc_icon.ico')
 
         self.total_expression = ""
         self.current_expression = ""
@@ -59,15 +59,21 @@ class Calculator:
         self.window.bind("<Tab>", lambda event: self.exit())
         self.window.bind("E", lambda event: self.add_to_expression('E'))
         self.window.bind("e", lambda event: self.add_to_expression('e(' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' )
-                           else '*e(' ))
+                                                                            self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
+                                                                            self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt('
+                                                                            or self.current_expression == '(' or self.current_expression == '((' or
+                                                                            self.current_expression == '((ln(' or self.current_expression == '(ln(' or self.current_expression == '(log(' or self.current_expression == '(tan(' or
+                                                                            self.current_expression == '(cos(' or self.current_expression == '(sin(' or self.current_expression == '(sqrt(' or
+                                                                            self.current_expression == '(abs(' or self.current_expression == '((log(' or self.current_expression == '((tan(' or
+                                                                            self.current_expression == '((cos(' or self.current_expression == '((sin(' or self.current_expression == '((sqrt(' or
+                                                                            self.current_expression == '((abs(')
+                                                                   else '*e('))
         self.window.bind("P", lambda event: self.add_to_expression('P'))
         self.window.bind("C", lambda event: self.add_to_expression('C'))
         self.window.bind('(', lambda event: self.add_to_expression('(' if (not self.current_expression or
-                           self.current_expression == "+" or self.current_expression == '-' or self.current_expression == '*' or
-                           self.current_expression == "/")
-                           else '*('))
+                                                                           self.current_expression == "+" or self.current_expression == '-' or self.current_expression == '*' or
+                                                                           self.current_expression == "/" or self.current_expression == '(')
+                                                                   else '*('))
         self.window.bind(")", lambda event: self.add_to_expression(')'))
         for key in self.digits:
             self.window.bind(str(key), lambda event, digit=key: self.add_to_expression(digit))
@@ -110,84 +116,131 @@ class Calculator:
     def create_pi_button(self):
         button = tk.Button(self.buttons_frame, text="π", bg="gray10", fg="ghost white", font=DEFAULT_FONT_STYLE,
                            borderwidth=0, command=lambda: self.add_to_expression('π' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
-                           self.current_expression == 'abs(')
-                           else '*π' ))
+                                                                                         self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
+                                                                                         self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
+                                                                                         self.current_expression == 'abs(' or self.current_expression == '(' or self.current_expression == '((' or
+                                                                                         self.current_expression == '((ln(' or self.current_expression == '(ln(' or self.current_expression == '(log(' or self.current_expression == '(tan(' or
+                                                                                         self.current_expression == '(cos(' or self.current_expression == '(sin(' or self.current_expression == '(sqrt(' or
+                                                                                         self.current_expression == '(abs(' or self.current_expression == '((log(' or self.current_expression == '((tan(' or
+                                                                                         self.current_expression == '((cos(' or self.current_expression == '((sin(' or self.current_expression == '((sqrt(' or
+                                                                                         self.current_expression == '((abs(')
+                                                                                 else '*π'))
         button.grid(row=0, column=1, sticky=tk.NSEW)
 
     def create_log_button(self):
         button = tk.Button(self.buttons_frame, text="log", bg="gray10", fg="ghost white", font=DEFAULT_FONT_STYLE,
-                           borderwidth=0, command=lambda: self.add_to_expression('log(' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt('or
-                           self.current_expression == 'abs(')
-                           else '*log(' ))
+                           borderwidth=0,
+                           command=lambda: self.add_to_expression('log(' if (not self.current_expression or
+                                                                             self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
+                                                                             self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
+                                                                             self.current_expression == 'abs(' or self.current_expression == '(' or self.current_expression == '((' or
+                                                                             self.current_expression == '((ln(' or self.current_expression == '(ln(' or self.current_expression == '(log(' or self.current_expression == '(tan(' or
+                                                                             self.current_expression == '(cos(' or self.current_expression == '(sin(' or self.current_expression == '(sqrt(' or
+                                                                             self.current_expression == '(abs(' or self.current_expression == '((log(' or self.current_expression == '((tan(' or
+                                                                             self.current_expression == '((cos(' or self.current_expression == '((sin(' or self.current_expression == '((sqrt(' or
+                                                                             self.current_expression == '((abs(')
+                                                                  else '*log('))
         button.grid(row=0, column=2, sticky=tk.NSEW)
 
     def create_ln_button(self):
         button = tk.Button(self.buttons_frame, text="ln", bg="gray10", fg="ghost white", font=DEFAULT_FONT_STYLE,
-                           borderwidth=0, command=lambda: self.add_to_expression('ln(' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
-                           self.current_expression == 'abs(')
-                           else '*ln('))
+                           borderwidth=0,
+                           command=lambda: self.add_to_expression('ln(' if (not self.current_expression or
+                                                                            self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
+                                                                            self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
+                                                                            self.current_expression == 'abs(' or self.current_expression == '(' or self.current_expression == '((' or
+                                                                            self.current_expression == '((ln(' or self.current_expression == '(ln(' or self.current_expression == '(log(' or self.current_expression == '(tan(' or
+                                                                            self.current_expression == '(cos(' or self.current_expression == '(sin(' or self.current_expression == '(sqrt(' or
+                                                                            self.current_expression == '(abs(' or self.current_expression == '((log(' or self.current_expression == '((tan(' or
+                                                                            self.current_expression == '((cos(' or self.current_expression == '((sin(' or self.current_expression == '((sqrt(' or
+                                                                            self.current_expression == '((abs(')
+                                                                  else '*ln('))
         button.grid(row=0, column=3, sticky=tk.NSEW)
 
     def create_abs_button(self):
         button = tk.Button(self.buttons_frame, text="abs", bg="gray10", fg="ghost white", font=DEFAULT_FONT_STYLE,
-                           borderwidth=0, command=lambda: self.add_to_expression('abs(' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
-                           self.current_expression == 'abs(' or self.current_expression == 'e(')
-                           else '*abs('))
+                           borderwidth=0,
+                           command=lambda: self.add_to_expression('abs(' if (not self.current_expression or
+                                                                             self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
+                                                                             self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
+                                                                             self.current_expression == 'abs(' or self.current_expression == 'e(' or self.current_expression == '(' or self.current_expression == '((' or
+                                                                             self.current_expression == '((ln(' or self.current_expression == '(ln(' or self.current_expression == '(log(' or self.current_expression == '(tan(' or
+                                                                             self.current_expression == '(cos(' or self.current_expression == '(sin(' or self.current_expression == '(sqrt(' or
+                                                                             self.current_expression == '(abs(' or self.current_expression == '((log(' or self.current_expression == '((tan(' or
+                                                                             self.current_expression == '((cos(' or self.current_expression == '((sin(' or self.current_expression == '((sqrt(' or
+                                                                             self.current_expression == '((abs(')
+                                                                  else '*abs('))
         button.grid(row=0, column=4, sticky=tk.NSEW)
 
     def create_e_button(self):
         button = tk.Button(self.buttons_frame, text="e", bg="gray10", fg="ghost white", font=DEFAULT_FONT_STYLE,
                            borderwidth=0, command=lambda: self.add_to_expression('e(' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
-                           self.current_expression == 'abs(')
-                           else '*e(' ))
+                                                                                          self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
+                                                                                          self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
+                                                                                          self.current_expression == 'abs(' or self.current_expression == '(' or self.current_expression == '((' or
+                                                                                          self.current_expression == '((ln(' or self.current_expression == '(ln(' or self.current_expression == '(log('
+                                                                                          or self.current_expression == '(tan(' or self.current_expression == '(cos(' or self.current_expression == '(sin('
+                                                                                          or self.current_expression == '(sqrt(' or
+                                                                                          self.current_expression == '(abs(' or self.current_expression == '((log(' or self.current_expression == '((tan(' or
+                                                                                          self.current_expression == '((cos(' or self.current_expression == '((sin(' or self.current_expression == '((sqrt(' or
+                                                                                          self.current_expression == '((abs(')
+                                                                                 else '*e('))
         button.grid(row=0, column=5, sticky=tk.NSEW)
 
     # row 1
     def create_sin_button(self):
         button = tk.Button(self.buttons_frame, text="sin", bg="gray10", fg="ghost white", font=DEFAULT_FONT_STYLE,
-                           borderwidth=0, command=lambda: self.add_to_expression('sin(' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt('or
-                           self.current_expression == 'abs(')
-                           else '*sin('))
+                           borderwidth=0,
+                           command=lambda: self.add_to_expression('sin(' if (not self.current_expression or
+                                                                             self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
+                                                                             self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
+                                                                             self.current_expression == 'abs(' or self.current_expression == '(' or self.current_expression == '((' or
+                                                                             self.current_expression == '((ln(' or self.current_expression == '(ln(' or self.current_expression == '(log(' or self.current_expression == '(tan(' or
+                                                                             self.current_expression == '(cos(' or self.current_expression == '(sin(' or self.current_expression == '(sqrt(' or
+                                                                             self.current_expression == '(abs(' or self.current_expression == '((log(' or self.current_expression == '((tan(' or
+                                                                             self.current_expression == '((cos(' or self.current_expression == '((sin(' or self.current_expression == '((sqrt(' or
+                                                                             self.current_expression == '((abs(')
+                                                                  else '*sin('))
         button.grid(row=1, column=1, sticky=tk.NSEW)
 
     def create_cos_button(self):
         button = tk.Button(self.buttons_frame, text="cos", bg="gray10", fg="ghost white", font=DEFAULT_FONT_STYLE,
-                           borderwidth=0, command=lambda: self.add_to_expression('cos(' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt('or
-                           self.current_expression == 'abs(')
-                           else '*cos(' ))
+                           borderwidth=0,
+                           command=lambda: self.add_to_expression('cos(' if (not self.current_expression or
+                                                                             self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
+                                                                             self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
+                                                                             self.current_expression == 'abs(' or self.current_expression == '(' or self.current_expression == '((' or
+                                                                             self.current_expression == '((ln(' or self.current_expression == '(ln(' or self.current_expression == '(log(' or self.current_expression == '(tan(' or
+                                                                             self.current_expression == '(cos(' or self.current_expression == '(sin(' or self.current_expression == '(sqrt(' or
+                                                                             self.current_expression == '(abs(' or self.current_expression == '((log(' or self.current_expression == '((tan(' or
+                                                                             self.current_expression == '((cos(' or self.current_expression == '((sin(' or self.current_expression == '((sqrt(' or
+                                                                             self.current_expression == '((abs(')
+                                                                  else '*cos('))
         button.grid(row=1, column=2, sticky=tk.NSEW)
 
     def create_tan_button(self):
         button = tk.Button(self.buttons_frame, text="tan", bg="gray10", fg="ghost white", font=DEFAULT_FONT_STYLE,
-                           borderwidth=0, command=lambda: self.add_to_expression('tan(' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt('or
-                           self.current_expression == 'abs(')
-                           else '*tan('))
+                           borderwidth=0,
+                           command=lambda: self.add_to_expression('tan(' if (not self.current_expression or
+                                                                             self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
+                                                                             self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
+                                                                             self.current_expression == 'abs(' or self.current_expression == '(' or self.current_expression == '((' or
+                                                                             self.current_expression == '((ln(' or self.current_expression == '(ln(' or self.current_expression == '(log(' or self.current_expression == '(tan(' or
+                                                                             self.current_expression == '(cos(' or self.current_expression == '(sin(' or self.current_expression == '(sqrt(' or
+                                                                             self.current_expression == '(abs(' or self.current_expression == '((log(' or self.current_expression == '((tan(' or
+                                                                             self.current_expression == '((cos(' or self.current_expression == '((sin(' or self.current_expression == '((sqrt(' or
+                                                                             self.current_expression == '((abs(')
+                                                                  else '*tan('))
         button.grid(row=1, column=3, sticky=tk.NSEW)
 
     def create_left_parenthesis_button(self):
         button = tk.Button(self.buttons_frame, text="(", bg="gray10", fg="ghost white",
                            font=DEFAULT_FONT_STYLE,
                            borderwidth=0, command=lambda: self.add_to_expression('(' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt('or
-                           self.current_expression == 'abs(' or self.current_expression == 'e('  or self.current_expression == '(')
-                           else '*('))
+                                                                                         self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
+                                                                                         self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(' or
+                                                                                         self.current_expression == 'abs(' or self.current_expression == 'e(' or self.current_expression == '(')
+                                                                                 else '*('))
         button.grid(row=1, column=4, sticky=tk.NSEW)
 
     def create_right_parenthesis_button(self):
@@ -204,10 +257,17 @@ class Calculator:
 
     def create_sqrt_button(self):
         button = tk.Button(self.buttons_frame, text="\u221ax", bg="gray10", fg="ghost white", font=DEFAULT_FONT_STYLE,
-                           borderwidth=0, command=lambda: self.add_to_expression('sqrt(' if (not self.current_expression or
-                           self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
-                           self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt(')
-                           else '*sqrt('))
+                           borderwidth=0,
+                           command=lambda: self.add_to_expression('sqrt(' if (not self.current_expression or
+                                                                              self.current_expression == 'ln(' or self.current_expression == 'log(' or self.current_expression == 'tan(' or
+                                                                              self.current_expression == 'cos(' or self.current_expression == 'sin(' or self.current_expression == 'sqrt('
+                                                                              or self.current_expression == '(' or self.current_expression == '((' or
+                                                                              self.current_expression == '((ln(' or self.current_expression == '(ln(' or self.current_expression == '(log(' or self.current_expression == '(tan(' or
+                                                                              self.current_expression == '(cos(' or self.current_expression == '(sin(' or self.current_expression == '(sqrt(' or
+                                                                              self.current_expression == '(abs(' or self.current_expression == '((log(' or self.current_expression == '((tan(' or
+                                                                              self.current_expression == '((cos(' or self.current_expression == '((sin(' or self.current_expression == '((sqrt(' or
+                                                                              self.current_expression == '((abs(')
+                                                                  else '*sqrt('))
         button.grid(row=2, column=2, sticky=tk.NSEW)
 
     def create_cube_button(self):
@@ -295,10 +355,10 @@ class Calculator:
         self.total_expression += self.current_expression
         self.update_total_label()
         x = self.total_expression
-        
+
         try:
             if '²' in x or '³' in x or 'E' in x or 'P' in x or 'C' in x or 'Ans' in x:
-                x = x.replace('²', '**2').replace('³', '**3').replace('E','*10**').replace('Ans',f'{self.prev_ans}')
+                x = x.replace('²', '**2').replace('³', '**3').replace('E', '*10**').replace('Ans', f'{self.prev_ans}')
                 pc = []
                 operands = ['+', '-', '*', '/']
                 for i in range(len(x)):
@@ -308,29 +368,31 @@ class Calculator:
                         while y > -1 and x[y] not in operands:
                             term = x[y] + term
                             y -= 1
-                        while (z+1) < len(x) and x[z+1] not in operands:
-                            term += x[z+1]
+                        while (z + 1) < len(x) and x[z + 1] not in operands:
+                            term += x[z + 1]
                             z += 1
                         pc.append(term)
                 for term in pc:
                     if 'P' in term:
-                        n,r = term.split('P')
-                        n,r = int(n), int(r)
-                        if 0 <= r <= n: 
+                        n, r = term.split('P')
+                        n, r = int(n), int(r)
+                        if 0 <= r <= n:
                             x = x.replace(term, f'math.factorial({n})' + '//' + f'math.factorial({n}-{r})')
                     elif 'C' in term:
-                        n,r = term.split('C')
-                        n,r = int(n), int(r)
+                        n, r = term.split('C')
+                        n, r = int(n), int(r)
                         if 0 <= r <= n:
-                            x = x.replace(term, f'math.factorial({n})' + '//' + f'math.factorial({r})' + '//' + f'math.factorial({n}-{r})' )
+                            x = x.replace(term,
+                                          f'math.factorial({n})' + '//' + f'math.factorial({r})' + '//' + f'math.factorial({n}-{r})')
             self.current_expression = str(eval(x))
-            
+
         except Exception:
-            self.current_expression = "Math Error"   
-        
+            self.current_expression = "Error"
+
         self.prev_ans = self.current_expression[:]
         self.total_expression = ""
         self.update_label()
+        self.current_expression = self.current_expression[:13]
         return self.current_expression
 
     def create_buttons_frame(self):
@@ -362,9 +424,6 @@ class Calculator:
 
     def update_label(self):
         self.label.config(text=self.current_expression[:13])
-
-    def exit(self):
-        exit()
 
     def run(self):
         self.window.mainloop()
