@@ -6,7 +6,7 @@
 
 • Can perform addition (+), subtraction (-), multiplication (x), and division (/).
 
-• capable of chaining multiple operations together and it must execute them in the correct order. (See photo at the bottom part.)
+• capable of chaining multiple operations together and evaluate it in mathematical order. (See photo at the bottom part.)
    
 • A delete button that deletes one character at a time
 
