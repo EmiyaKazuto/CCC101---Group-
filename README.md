@@ -1,10 +1,10 @@
-# CALCULATOR |CCC101 Final Project|
+# UTI Calculator 
 
 ## Basic Features
 
 • Numeric keypad (0-9) with decimal point
 
-• Can perform addition (+), subtraction (-), multiplication (x), and division (/).
+• Can perform addition (+), subtraction (-), multiplication (x), and division (/)
 
 • capable of chaining multiple operations together and evaluate it in mathematical order. (See photo at the bottom part.)
    
@@ -14,29 +14,7 @@
 
 • It displays the current expression being inputted by the user
 
-## This is a key binded calculator app. You can use it with your keyboard directly.
-
-please refer to the following:
-   
-      press "enter" for "="
-      
-      press "Backspace" for "del
-      
-      press "c" (small c) for "AC"
-      
-      press "E" for "EXP"
-      
-      press "e" for "e"
-      
-      press "P" for "nPr"
-      
-      press "C" for "nCr"
-      
-      press "(" for "("  and  press ")" for  ")"
-   
-
-
-## Advance features
+## Advanced Features
 
 • Square of a number
 
@@ -50,7 +28,7 @@ please refer to the following:
 
 • Permutation and Combination
 
-• Some trigonometric functions. (results are in radians)
+• Some trigonometric functions. *(Note: Results are in radians)*
 
       -sine
    
@@ -70,13 +48,38 @@ please refer to the following:
 
 • Absolute Value of a number (abs)
 
-## LIMITS OF CALCULATOR FUNCTIONALITIES
 
-• Can only display answers of upto 14 characters only
+
+
+## This is a key binded calculator app. You can use it with your keyboard directly.
+
+Please refer to the following:
+   
+      press "enter" for "="
+      
+      press "Backspace" for "del"
+      
+      press "c" (small c) for "AC"
+      
+      press "E" for "EXP"
+      
+      press "e" for "e"
+      
+      press "P" for "nPr"
+      
+      press "C" for "nCr"
+      
+      press "(" for "("  and  press ")" for  ")"
+
+
+## Limits of Calculator Functionalities
+
+• Can only display answers of upto 13 characters only
 
 • Cannot return exact answers of xE(-n) if n is greater than 3.
 
-## Sample application execution
+
+## Sample Appliction Execution
 
 Click link to view
 
