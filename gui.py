@@ -9,7 +9,6 @@ class Calculator:
     def __init__(self):
         self.window = tk.Tk()
         self.window.geometry("370x590")
-        self.window.iconbitmap("calc_icon.ico")
         self.window.resizable(0, 0)
         self.window.title("Calculator")
 
