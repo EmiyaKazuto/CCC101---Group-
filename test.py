@@ -6,6 +6,7 @@ from main import Calculator
 class TestCalculator(unittest.TestCase):
 
 ## for basic functions
+
     def test_add_to_expression(self):
         c = Calculator()
         c.add_to_expression(1)
@@ -185,7 +186,6 @@ class TestCalculator(unittest.TestCase):
         c.append_operator('+')
         self.assertEqual(c.total_expression, '10+100-50/2+')
 
-
     def test_all_operations_evaluate(self):
         c= Calculator()
         c.add_to_expression(1)
@@ -204,7 +204,9 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         self.assertEqual(c.current_expression, '-15.0')
 
+
 ## for pi function
+
     def test_add_pi(self):
         c = Calculator()
         c.add_to_expression('π')
@@ -223,7 +225,6 @@ class TestCalculator(unittest.TestCase):
         c.add_to_expression('5')
         self.assertEqual(c.current_expression, 'π+5')
 
-
     def test_piAndNumber_add_evaluate(self):
         c = Calculator()
         c.add_to_expression('π')
@@ -239,7 +240,6 @@ class TestCalculator(unittest.TestCase):
         c.add_to_expression('1')
         self.assertEqual(c.current_expression, 'π-1')
 
-
     def test_piAndNumber_subtract_evaluate(self):
         c = Calculator()
         c.add_to_expression('π')
@@ -254,7 +254,6 @@ class TestCalculator(unittest.TestCase):
         c.add_to_expression('*')
         c.add_to_expression('1')
         self.assertEqual(c.current_expression, 'π*1')
-
     
     def test_piAndNumber_multiply_evaluate(self):
         c = Calculator()
@@ -271,7 +270,9 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         self.assertEqual(c.current_expression, '15.7079632679')
 
+
 ## for ln function
+
     def test_ln_function(self):
         c = Calculator()
         c.add_to_expression('ln(')
@@ -303,7 +304,9 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         self.assertEqual(c.current_expression, '3.21887582486')
 
+
 ## for log function
+
     def test_log(self):
         c = Calculator()
         c.add_to_expression('log(')
@@ -329,7 +332,9 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         self.assertEqual(c.current_expression, '2.0')
 
+
 ## for absolute function
+
     def test_absolute(self):
         c = Calculator()
         c.add_to_expression('abs(')
@@ -357,7 +362,9 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         self.assertEqual(c.current_expression, '25.0')
 
+
 ## for e 
+
     def test_efunction1(self):
         c = Calculator()
         c.add_to_expression(2)
@@ -396,6 +403,7 @@ class TestCalculator(unittest.TestCase):
 
 
 ## for sin function
+
     def test_sin_function(self):
         c = Calculator()
         c.add_to_expression('sin(')
@@ -421,8 +429,10 @@ class TestCalculator(unittest.TestCase):
         c.add_to_expression(')')
         c.evaluate()
         self.assertEqual(c.current_expression, '0.0')
-        
+     
+   
 ## for cos function
+
     def test_cos_function(self):
         c = Calculator()
         c.add_to_expression('cos(')
@@ -451,6 +461,7 @@ class TestCalculator(unittest.TestCase):
 
 
 ## for tan function
+
     def test_tan_function(self):
         c = Calculator()
         c.add_to_expression('tan(')
@@ -478,7 +489,9 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         self.assertEqual(c.current_expression, '0.0')
 
+
 ## for parentheses
+
     def test_parentheses(self):
         c = Calculator()
         c.add_to_expression(5)
@@ -500,7 +513,9 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         self.assertEqual(c.current_expression, '75')
 
+
 ## for squared
+
     def test_square_a_number(self):
         c = Calculator()
         c.add_to_expression(1)
@@ -527,6 +542,7 @@ class TestCalculator(unittest.TestCase):
     
 
 ## for square root
+
     def test_squareroot_a_number(self):
         c = Calculator()
         c.add_to_expression('sqrt(')
@@ -556,6 +572,7 @@ class TestCalculator(unittest.TestCase):
 
 
 ## for cubed
+
     def test_cube_a_number(self):
         c = Calculator()
         c.add_to_expression(1)
@@ -579,7 +596,9 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         self.assertEqual(c.current_expression, '3375')
 
+
 ## for permutation
+
     def test_permutation(self):
         c = Calculator()
         c.add_to_expression(5)
@@ -616,8 +635,8 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(c.current_expression, 'Error')
 
 
-
 ## for combination
+
     def test_combination(self):
         c = Calculator()
         c.add_to_expression(5)
@@ -654,7 +673,9 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         self.assertEqual(c.current_expression, 'Error')
     
+
 ## for exponent
+
     def test_exponent(self):
         c = Calculator()
         c.add_to_expression(5)
@@ -680,7 +701,9 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         self.assertEqual(c.current_expression, '5300000')    
 
+
 ## for delete
+
     def test_delete_function(self):
         c = Calculator()
         c.add_to_expression(5)
@@ -722,7 +745,9 @@ class TestCalculator(unittest.TestCase):
         c.delete()
         self.assertEqual(c.current_expression, 'ln(e(1')
 
+
 ## for delete all
+
     def test_delete_all(self):
         c = Calculator()
         c.add_to_expression(5)
@@ -751,7 +776,9 @@ class TestCalculator(unittest.TestCase):
         c.clear()
         self.assertEqual(c.current_expression, '')
 
+
 ## for ans
+
     def test_answer_function(self):
         c = Calculator()
         c.add_to_expression(5)
@@ -795,7 +822,9 @@ class TestCalculator(unittest.TestCase):
         c.evaluate()
         self.assertEqual(c.current_expression, '147')
     
+
 ## for complicated expressions, mas komplikado pa sa inyong relasyon.
+
     def test_compl1(self):
         c = Calculator()
         c. add_to_expression(1)
@@ -984,6 +1013,7 @@ class TestCalculator(unittest.TestCase):
         c.add_to_expression(1)
         c.evaluate()
         self.assertEqual(c.current_expression, '16.1681123382')
+
 
 
 if __name__ == "__main__":
