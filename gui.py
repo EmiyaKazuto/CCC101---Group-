@@ -424,6 +424,5 @@ class Calculator:
 
 
 def main():
-    
     calc = Calculator()
     calc.run()
