@@ -213,8 +213,7 @@ class Calculator:
 
     def run(self):
         self.window.mainloop()
-
-        
+ 
 def main():
     calc = Calculator()
     calc.run()
