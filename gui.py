@@ -214,7 +214,7 @@ class Calculator:
     def run(self):
         self.window.mainloop()
 
-
-if __name__ == "__main__":
+        
+def main():
     calc = Calculator()
     calc.run()
